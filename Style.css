@@ -1,0 +1,621 @@
+/* 
+===================
+GENERAL ◙‿◙
+=================== 
+*/
+@media screen and (max-width: 100%) and (max-height: 100%) {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+}
+
+/* costume font */
+
+
+h1, h2{
+  font-family: 'IM Fell English', serif, Arial, Helvetica, sans-serif;
+}
+
+h4{
+  font-family: 'Buenard', serif, Arial, Helvetica, sans-serif;
+}
+
+p{
+  font-family: 'Gaegu', serif, Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin-top: 84vh;
+}
+
+/* 
+=============================
+Hamburger menu (⁀ᗢ⁀) BRON: https://www.youtube.com/watch?v=dAIVbLrAb_U
+============================= 
+*/
+
+:root {
+  --bar-width: 50px;
+  --bar-height: 8px;
+  --hamburger-gap: 5px;
+  --foreground: rgb(29, 41, 16);
+  border-radius: 10px;
+  --background: #D5CBAB;
+  --hamburger-margin: 20px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  z-index: 5;
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  cursor: pointer;
+}
+
+.hamburger-menu:has(>input:checked) {
+  --foreground: #D5CBAB;
+  --background: #5e4e3c;
+}
+
+.hamburger-menu:has(>input:focus-visible):before,
+.hamburger-menu:has(>input:focus-visible):after,
+.hamburger-menu input:focus-visible {
+  border: 3px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    transform var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(>input:checked)::before {
+  transform: rotate(45deg) translate(-2px, calc(var(--bar-height) / -2));
+  width: var(--x-width);
+}
+
+.hamburger-menu:has(>input:checked)::after {
+  transform: rotate(-45deg) translate(0, calc(var(--bar-height) / 2));
+  width: var(--x-width);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition: translate var(--animation-timing);
+  transform: translate(-100%);
+  padding: 0.5rem 1rem;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  background-color: var(--foreground);
+  color: var(--background);
+  width: 100%;
+  max-width: 60%;
+  min-height: 100vh;
+}
+
+.hamburger-menu:has(>input:checked) + .sidebar {
+  transform: translate(0);
+}
+
+/* 
+====================
+Nav （⁀⊙෴☉⁀）
+====================
+*/
+
+nav ul li {
+  list-style: none;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #D5CBAB;
+  font-size: 17px;
+}
+
+nav ul li a:hover {
+  color: rgb(193, 152, 87);
+}
+
+/**
+    ===================
+    FOOTER ┌( ಠ‿ಠ )┘
+    ===================
+*/
+
+footer {
+  display: flex;
+  gap: 5em;
+  background-color: #3d442c;
+  width: 100%;
+  text-align: left;
+  color: #D5CBAB;
+}
+
+footer section {
+  /* Als je dingen onder elkaar wilt hebben BLOCKJE */
+  display: block; 
+}
+
+footer section h4{
+  margin-left: 2.5em;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer a {
+  color: #D5CBAB;
+}
+
+.footer2 {
+  background-color: #403938;
+}
+
+.footer3 {
+  background-color: #090b01;
+}
+
+.footer4 {
+  background-color: #1a1d0b;
+}
+
+
+/* 
+====================
+HERO ｡^‿^｡
+====================
+*/
+
+.illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 90vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.hero {
+  background-color: #5F6944;
+}
+
+.KunstEnKas {
+  background-color: #1B2718;
+}
+
+.KlimatenKas {
+  background-color: #e16427;
+}
+
+.NieuwLeven {
+  background-color: #2b3113;
+}
+
+.NieuwLeven .illustration {
+  object-fit: contain;
+  height: auto;
+}
+
+/* 
+====================
+Home ٩(◕‿◕｡)۶
+====================
+*/
+.home {
+  color: #D5CBAB;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.home h1 {
+  font-size: 1.8em;
+  margin-bottom: 0;
+}
+
+.home h4 {
+  color: #D5CBAB;
+  text-align: center;
+  font-weight: normal;
+  font-size: .9em;
+  margin-top: 0;
+}
+
+
+.home p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project {
+  margin-top: 3.5em;
+  width: 100%;
+  height: 315px;
+  flex-shrink: 0;
+  background: #424824;
+}
+
+.project h2 {
+  color: #D5CBAB;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 2em;
+  padding-right: 2em;
+  padding-left: 2em; 
+}
+
+.project p {
+  color: #D5CBAB;
+  text-align: left;
+  padding-top: 0.5em;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+/* Carousel plaatjes  */
+
+.carousel h2 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-top: 1.3em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.carousel div{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: hidden;
+  margin-bottom: 1.6em;
+}
+
+.carousel div img{
+  width: 100%;
+  margin: 0.7em;
+  border-radius: 1em;
+  margin-bottom: 2.5em;
+}
+
+.carousel div img:nth-of-type(1){
+  margin-left: -35%;
+}
+
+.carousel div img:nth-of-type(2){
+  width: 165%;
+}
+
+.carousel div img:nth-of-type(3){
+  margin-right: -35%;
+}
+
+
+/* 
+====================
+Kunst en Kas（￣ε￣ʃƪ）
+====================
+*/
+
+.kunstenkasproject h1 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.kunstenkasproject h4 {
+    color: #D5CBAB;
+    text-align: center;
+    font-weight: normal;
+    font-size: .9em;
+    margin-top: -1.5em;
+}
+
+.kunstenkasproject h2 {
+  color: #D5CBAB;
+  text-align: center;
+  margin-top: 1.5em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.kunstenkasproject p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.kunstenkas-button-container {
+  text-align: center;
+  margin: 2em;
+}
+
+.kunstenkasproject .read-more {
+  text-align: center;
+}
+
+.kunstenkas-button {
+  background-color: rgb(156, 151, 99);
+  border: 2px solid #1d2910;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1em;
+  color: rgb(27, 39, 24);
+  text-decoration: none;
+  padding: 10px 25px;
+  align-items: center;
+}
+
+.hermitage img{
+  margin-top: 3em;
+  width: 100%;
+  height: auto;
+}
+
+.erfgoedprijs {
+margin-top: -1.5em;
+width: 100%;
+height: 400px;
+flex-shrink: 0;
+background: rgb(109, 98, 96);
+}
+
+.erfgoedprijs h2 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-top: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.erfgoedprijs h4 {
+    color: #D5CBAB;
+    text-align: center;
+    font-weight: normal;
+    font-size: .9em;
+    margin-top: -1em;
+}
+
+
+.erfgoedprijs p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+
+/* 
+====================
+Drie klimaten kas ⊂◉‿◉つ
+====================
+*/
+
+.DrieKlimatenKas h1 {
+  color: #121703;
+  font-size: 1.8em;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.DrieKlimatenKas h4 {
+  color: #121703;
+  text-align: center;
+  margin-top: -1.5em;
+  padding-right: 2em;
+  padding-left: 2em;
+  font-weight: normal;
+  font-size: .9em;
+}
+
+.DrieKlimatenKas p {
+  color: #121703;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.subtropen img{
+  margin-top: -1em;
+  width: 100%;
+  height: auto;
+}
+
+.subtropen {
+  margin-top: 5em;
+  width: 100%;
+  height: 400px;
+  flex-shrink: 0;
+  background: rgb(146, 123, 101)
+}
+
+.duurzamekas {
+  margin-top: 8em;
+  width: 100%;
+  height: 500px;
+  flex-shrink: 0;
+  background: rgb(146, 123, 101)
+}
+
+.duurzamekas h2 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-top: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.duurzamekas p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.tropen img{
+  margin-top: -7em;
+  width: 100%;
+  height: auto;
+}
+
+.adopteerplant {
+  margin-top: -2em;
+  width: 100%;
+  height: 325px;
+  flex-shrink: 0;
+  background: rgb(18, 23, 3)
+  }
+
+.adopteerplant h2 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-top: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.adopteerplant p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.adopteerplant-button-container {
+  text-align: center;
+  margin: 2em;
+}
+
+.adopteerplant-button {
+  background-color: rgb(156, 151, 99);
+  border: 2px solid #1d2910;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1em;
+  color: rgb(27, 39, 24);
+  text-decoration: none;
+  padding: 10px 25px;
+  align-items: center;
+}
+
+/* 
+====================
+Bannier tot tas (ᗒᗨᗕ)
+====================
+*/
+
+.bannier {
+  position: relative;
+  padding-bottom: 2em;
+}
+
+.bannier-illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: .5;
+}
+
+.bannier h1 {
+  color: #D5CBAB;
+  text-align: center;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.bannier h4 {
+  color: #D5CBAB;
+  text-align: center;
+  margin-top: -1em;
+  padding-right: 2em;
+  padding-left: 2em;
+  font-weight: normal;
+  font-size: .9em;
+}
+
+.bannier p {
+  color: #D5CBAB;
+  text-align: left;
+  margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.tex-button-container {
+  text-align: center;
+  margin: 2em;
+}
+
+.bannier .read-more {
+  text-align: center;
+}
+
+.tex-button {
+  background-color: rgb(156, 151, 99);
+  border: 2px solid #1d2910;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1em;
+  color: rgb(27, 39, 24);
+  text-decoration: none;
+  padding: 10px 25px;
+  align-items: center;
+}
