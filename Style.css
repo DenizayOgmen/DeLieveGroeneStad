@@ -330,6 +330,7 @@ Home ٩(◕‿◕｡)۶
 
 .carousel div img:nth-of-type(2){
   width: 165%;
+  height: auto;
 }
 
 .carousel div img:nth-of-type(3){
